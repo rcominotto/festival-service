@@ -8,6 +8,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     env:
       DB_USER: ${{ secrets.DB_USER }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
@@ -24,6 +27,11 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::123456789012:role/GitHubActionsRole
+          aws-region: eu-central-1
 
       - name: Build and push Docker image
         id: build-image
@@ -38,7 +46,7 @@ jobs:
         with:
           task-definition: ecs-task-def.json
           container-name: festival-service
-          environment-variables:  |
+          environment-variables: |
             DB_USER=${{ secrets.DB_USER }}
             DB_PASSWORD=${{ secrets.DB_PASSWORD }}
           image: ${{ steps.build-image.outputs.image }}
@@ -50,5 +58,3 @@ jobs:
           service: festival-service
           cluster: my-cluster
           wait-for-service-stability: true
-        env:
-          AWS_REGION: eu-central-1
