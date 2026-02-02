@@ -1,0 +1,21 @@
+{
+  "family": "festival-service-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "containerDefinitions": [
+    {
+      "name": "festival",
+      "image": "DOCKER_IMAGE_PLACEHOLDER",
+      "essential": true,
+      "portMappings": [
+        { "containerPort": 8080, "protocol": "tcp" }
+      ],
+      "environment": [
+        { "name": "DB_USER", "value": "DB_USER_PLACEHOLDER" },
+        { "name": "DB_PASSWORD", "value": "DB_PASSWORD_PLACEHOLDER" }
+      ]
+    }
+  ]
+}
