@@ -6,7 +6,7 @@
   "memory": "512",
   "containerDefinitions": [
     {
-      "name": "festival",
+      "name": "festival-service",
       "image": "DOCKER_IMAGE_PLACEHOLDER",
       "essential": true,
       "portMappings": [
