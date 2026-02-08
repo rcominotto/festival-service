@@ -15,7 +15,15 @@
       "environment": [
         { "name": "DB_USER", "value": "DB_USER_PLACEHOLDER" },
         { "name": "DB_PASSWORD", "value": "DB_PASSWORD_PLACEHOLDER" }
-      ]
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/festival-service",
+          "awslogs-region": "eu-central-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
     }
   ]
 }
