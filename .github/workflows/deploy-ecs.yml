@@ -55,5 +55,5 @@ jobs:
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: festival-service
-          cluster: my-cluster
+          cluster: demo-ecs-cluster
           wait-for-service-stability: true
