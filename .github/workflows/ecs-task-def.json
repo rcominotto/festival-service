@@ -16,6 +16,7 @@
         { "name": "DB_USER", "value": "DB_USER_PLACEHOLDER" },
         { "name": "DB_PASSWORD", "value": "DB_PASSWORD_PLACEHOLDER" }
       ],
+      "executionRoleArn": "arn:aws:iam::340452546722:role/ecsTaskExecutionRole",
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
