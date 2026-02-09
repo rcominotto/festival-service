@@ -1,5 +1,6 @@
 {
   "family": "festival-service-task",
+  "executionRoleArn": "arn:aws:iam::340452546722:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
   "requiresCompatibilities": ["FARGATE"],
   "cpu": "256",
@@ -16,7 +17,6 @@
         { "name": "DB_USER", "value": "DB_USER_PLACEHOLDER" },
         { "name": "DB_PASSWORD", "value": "DB_PASSWORD_PLACEHOLDER" }
       ],
-      "executionRoleArn": "arn:aws:iam::340452546722:role/ecsTaskExecutionRole",
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
