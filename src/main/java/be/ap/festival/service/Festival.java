@@ -1,7 +1,5 @@
 package be.ap.festival.service;
 
-import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -9,10 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Entity
 public class Festival {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -23,15 +18,8 @@ public class Festival {
 
     private BigDecimal price;
 
-    @ElementCollection
-    @CollectionTable(name = "festival_photos", joinColumns = @JoinColumn(name = "festival_id"))
-    @Column(name = "photo_url")
     private List<String> photos = new ArrayList<>();
 
-    @ManyToMany
-    @JoinTable(name = "festival_artists",
-            joinColumns = @JoinColumn(name = "festival_id"),
-            inverseJoinColumns = @JoinColumn(name = "artist_id"))
     private Set<Artist> lineup = new HashSet<>();
 
     public Festival() {

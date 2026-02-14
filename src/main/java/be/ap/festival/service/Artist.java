@@ -1,11 +1,6 @@
 package be.ap.festival.service;
 
-import jakarta.persistence.*;
-
-@Entity
 public class Artist {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;

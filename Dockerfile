@@ -13,9 +13,6 @@ RUN mvn -B -DskipTests package
 FROM eclipse-temurin:17-jre
 WORKDIR /app
 
-# Copy AWS RDS SSL bundle to match application-prod.properties path
-COPY certificates/global-bundle.pem /certs/global-bundle.pem
-
 # Copy the built Spring Boot jar
 COPY --from=build /app/target/*.jar /app/app.jar
 

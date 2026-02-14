@@ -1,7 +1,6 @@
 package be.ap.festival.service.festival.repo;
 
-import be.ap.festival.service.Festival;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface FestivalRepository extends JpaRepository<Festival, Long> {
+// SQL/JPA removed: this repository is no longer used.
+// Kept only to avoid breaking imports in older code; not referenced anymore.
+public interface FestivalRepository {
 }
