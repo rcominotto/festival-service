@@ -1,0 +1,128 @@
+{
+  "festivals": [
+    {
+      "id": 1,
+      "name": "Tomorrowland",
+      "place": "Boom",
+      "date": "2026-07-24",
+      "price": 129.00,
+      "photos": [
+        "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/tomorrowland.jpg",
+        "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/tomorrowland-2.jpg"
+      ],
+      "lineup": [
+        {
+          "id": 1,
+          "name": "Martin Garrix",
+          "photoUrl": "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/Martin-Garrix.jpg",
+          "genre": "EDM"
+        },
+        {
+          "id": 2,
+          "name": "David Guetta",
+          "photoUrl": "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/david-guetta.jpg",
+          "genre": "EDM"
+        },
+        {
+          "id": 3,
+          "name": "Charlotte de Witte",
+          "photoUrl": "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/charlotte-de-witte.jpg",
+          "genre": "Techno"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Rock Werchter",
+      "place": "Werchter",
+      "date": "2026-07-03",
+      "price": 110.00,
+      "photos": [
+        "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/rock-werchter.jpg",
+        "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/rock-werchter+2.jpg"
+      ],
+      "lineup": [
+        {
+          "id": 4,
+          "name": "Foo Fighters",
+          "photoUrl": "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/Foo-fighters.jpg",
+          "genre": "Rock"
+        },
+        {
+          "id": 5,
+          "name": "Arctic Monkeys",
+          "photoUrl": "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/arctic-monkeys.jpg",
+          "genre": "Indie Rock"
+        },
+        {
+          "id": 6,
+          "name": "Dua Lipa",
+          "photoUrl": "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/dua-lipa.jpg",
+          "genre": "Pop"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Pukkelpop",
+      "place": "Kiewit",
+      "date": "2026-08-20",
+      "price": 99.00,
+      "photos": [
+        "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/Pukkelpop.jpg",
+        "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/pukkelpop-2.jpg"
+      ],
+      "lineup": [
+        {
+          "id": 7,
+          "name": "Billie Eilish",
+          "photoUrl": "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/billie-eilish.jpg",
+          "genre": "Pop"
+        },
+        {
+          "id": 8,
+          "name": "The Weeknd",
+          "photoUrl": "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/the+weekend.jpg",
+          "genre": "R&B"
+        },
+        {
+          "id": 9,
+          "name": "Tame Impala",
+          "photoUrl": "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/tame-impala.jpg",
+          "genre": "Psychedelic Rock"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Graspop Metal Meeting",
+      "place": "Dessel",
+      "date": "2026-06-19",
+      "price": 105.00,
+      "photos": [
+        "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/graspop.jpg",
+        "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/graspop-2.jpg"
+      ],
+      "lineup": [
+        {
+          "id": 10,
+          "name": "Metallica",
+          "photoUrl": "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/metallica.jpg",
+          "genre": "Metal"
+        },
+        {
+          "id": 11,
+          "name": "Iron Maiden",
+          "photoUrl": "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/iron-maiden.jpg",
+          "genre": "Heavy Metal"
+        },
+        {
+          "id": 12,
+          "name": "Slipknot",
+          "photoUrl": "https://festival-demo-bucket.s3.eu-central-1.amazonaws.com/slipknot.jpg",
+          "genre": "Metal"
+        }
+      ]
+    }
+  ]
+}

@@ -49,7 +49,7 @@ class FestivalApiIntegrationTest {
     }
 
     private String loadExpectedFestivalsArrayJson() throws IOException {
-        ClassPathResource resource = new ClassPathResource("festivals.json");
+        ClassPathResource resource = new ClassPathResource("festivals-test.json");
         ObjectMapper mapper = new ObjectMapper().findAndRegisterModules();
         JsonNode root = mapper.readTree(resource.getInputStream());
         JsonNode festivalsArray = root.get("festivals");
