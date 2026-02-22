@@ -1,0 +1,45 @@
+name: PR Validation (Maven Build & Test)
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Maven Build and Test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4 # Updated to v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Run Maven Tests
+        id: maven-test
+        run: mvn clean test
+        continue-on-error: true
+
+      - name: Surface Maven Test Report
+        uses: phoenix-actions/test-reporting@v15 # Using latest stable version
+        if: always()
+        with:
+          name: Maven Test Report
+          path: '**/target/surefire-reports/*.xml'
+          reporter: java-junit
+          # This will fail the job if tests fail, removing the need for a manual exit 1 later
+          fail-on-error: true
+
+      - name: Verify Docker Build
+        # Only run if the Maven tests actually passed
+        if: steps.maven-test.outcome == 'success'
+        run: docker build -t festival-service:test-pr .
