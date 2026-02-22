@@ -14,7 +14,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK 17  # Change this to your project's Java version
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: '17'
@@ -22,9 +22,25 @@ jobs:
           cache: 'maven'
 
       - name: Run Maven Tests
+        # 'continue-on-error' ensures we still run the reporting step if tests fail
+        id: maven-test
         run: mvn clean test
+        continue-on-error: true
+
+      - name: Surface Maven Test Report
+        uses: phoenix-actions/test-reporting@v12
+        if: always() # Always run this, even if tests failed
+        with:
+          name: Maven Test Report
+          path: '**/target/surefire-reports/*.xml'
+          reporter: java-junit
+          fail-on-error: true
 
       - name: Verify Docker Build
-        run: |
-          # This ensures the Dockerfile is still valid without pushing to a registry
-          docker build -t festival-service:test-pr .
+        if: steps.maven-test.outcome == 'success'
+        run: docker build -t festival-service:test-pr .
+
+      # This final step ensures the PR status check actually fails if tests failed
+      - name: Check test outcome
+        if: steps.maven-test.outcome != 'success'
+        run: exit 1
