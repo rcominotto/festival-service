@@ -1,0 +1,30 @@
+name: PR Validation (Maven Build & Test)
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Maven Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17  # Change this to your project's Java version
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Run Maven Tests
+        run: mvn clean test
+
+      - name: Verify Docker Build
+        run: |
+          # This ensures the Dockerfile is still valid without pushing to a registry
+          docker build -t festival-service:test-pr .
