@@ -8,3 +8,10 @@ logging:
   level:
     org.apache.coyote.http11.Http11Processor: ERROR
     org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+  pattern:
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
